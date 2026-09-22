@@ -2,35 +2,34 @@ import Link from "next/link";
 
 const links = [
   { href: "/jobs", label: "Вакансии" },
-  { href: "/resume-builder", label: "Конструктор резюме" },
-  { href: "/dashboard/candidate", label: "Кабинет соискателя" },
-  { href: "/dashboard/employer", label: "Кабинет работодателя" },
+  { href: "/resume-builder", label: "Резюме" },
+  { href: "/dashboard/candidate", label: "Соискателю" },
+  { href: "/dashboard/employer", label: "Работодателю" },
 ];
 
 export default function Navbar() {
   return (
-    <header className="rule-b sticky top-0 z-40 bg-paper/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2.5 focus-ring rounded">
+    <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-3.5 lg:px-8">
+        <Link href="/" className="focus-ring flex shrink-0 items-center gap-2.5 rounded-xl">
           <DiceMark />
-          <span className="font-serif text-xl font-semibold tracking-tight">JobDice</span>
+          <div>
+            <span className="block font-serif text-xl font-bold tracking-tight text-slate-950">JobDice</span>
+            <span className="hidden text-[9px] font-semibold uppercase tracking-[0.16em] text-slate-400 sm:block">Verified hiring</span>
+          </div>
         </Link>
-        <nav className="hidden items-center gap-7 md:flex">
+
+        <nav className="hidden items-center gap-1 lg:flex">
           {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-sm text-ink-soft transition-colors hover:text-ink focus-ring rounded"
-            >
+            <Link key={l.href} href={l.href} className="focus-ring rounded-lg px-3.5 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-950">
               {l.label}
             </Link>
           ))}
         </nav>
-        <Link
-          href="/jobs"
-          className="rounded bg-ink px-4 py-2 text-sm font-medium text-paper transition-opacity hover:opacity-90 focus-ring"
-        >
-          Найти вакансию
+
+        <Link href="/jobs" className="focus-ring inline-flex items-center gap-2 rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800">
+          Найти работу
+          <span aria-hidden>↗</span>
         </Link>
       </div>
     </header>
@@ -39,13 +38,13 @@ export default function Navbar() {
 
 function DiceMark() {
   return (
-    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-      <rect x="1" y="1" width="24" height="24" rx="5" stroke="#161C2E" strokeWidth="1.6" />
-      <circle cx="8" cy="8" r="1.7" fill="#161C2E" />
-      <circle cx="18" cy="8" r="1.7" fill="#161C2E" />
-      <circle cx="13" cy="13" r="1.7" fill="#C7962C" />
-      <circle cx="8" cy="18" r="1.7" fill="#161C2E" />
-      <circle cx="18" cy="18" r="1.7" fill="#161C2E" />
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+      <rect x="1" y="1" width="32" height="32" rx="10" fill="#0f172a" />
+      <circle cx="10" cy="10" r="2" fill="#fff" />
+      <circle cx="24" cy="10" r="2" fill="#fff" />
+      <circle cx="17" cy="17" r="2" fill="#34d399" />
+      <circle cx="10" cy="24" r="2" fill="#fff" />
+      <circle cx="24" cy="24" r="2" fill="#fff" />
     </svg>
   );
 }

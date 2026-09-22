@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" className={`${sourceSerif.variable} ${plexSans.variable} ${plexMono.variable}`}>
-      <body className="font-sans bg-paper text-ink antialiased">
+      <body className="font-sans bg-[#F6F7FB] text-ink antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

@@ -1,20 +1,16 @@
 function tone(score: number) {
-  if (score >= 80) return { text: "text-seal", border: "border-seal", bg: "bg-seal-soft" };
-  if (score >= 60) return { text: "text-brass", border: "border-brass", bg: "bg-brass-soft" };
-  return { text: "text-clay", border: "border-clay", bg: "bg-clay-soft" };
+  if (score >= 80) return { text: "text-emerald-700", ring: "ring-emerald-100", bg: "bg-emerald-50", label: "Сильное" };
+  if (score >= 60) return { text: "text-amber-700", ring: "ring-amber-100", bg: "bg-amber-50", label: "Хорошее" };
+  return { text: "text-rose-700", ring: "ring-rose-100", bg: "bg-rose-50", label: "Ниже" };
 }
 
 export default function MatchScoreBadge({ score, size = "md" }: { score: number; size?: "sm" | "md" | "lg" }) {
   const t = tone(score);
-  const dims =
-    size === "lg" ? "h-20 w-20 text-2xl" : size === "sm" ? "h-11 w-11 text-sm" : "h-14 w-14 text-lg";
+  const dims = size === "lg" ? "h-24 w-24 text-2xl" : size === "sm" ? "h-12 w-12 text-sm" : "h-16 w-16 text-lg";
   return (
-    <div
-      className={`flex ${dims} flex-none flex-col items-center justify-center rounded border ${t.border} ${t.bg}`}
-      title={`Match Score: ${score}%`}
-    >
-      <span className={`font-serif font-semibold leading-none ${t.text}`}>{score}</span>
-      {size !== "sm" && <span className="mt-0.5 text-[10px] leading-none text-ink-faint">match</span>}
+    <div className={`flex ${dims} flex-none flex-col items-center justify-center rounded-2xl ${t.bg} ${t.text} ring-1 ${t.ring}`} title={`Match Score: ${score}%`}>
+      <span className="font-serif font-bold leading-none">{score}%</span>
+      {size !== "sm" && <span className="mt-1 text-[9px] font-semibold uppercase tracking-wider opacity-70">match</span>}
     </div>
   );
 }

@@ -2,86 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: light;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
 body {
-  background-color: #F4F5F0;
-  color: #161C2E;
+  background: #f6f7fb;
+  color: #142033;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+::selection { background: #d7f3e5; color: #142033; }
+
+@layer components {
+  .surface { @apply rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_35px_rgba(20,32,51,0.06)]; }
+  .surface-hover { @apply transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_18px_45px_rgba(20,32,51,0.10)]; }
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500; }
+  .focus-ring:focus-visible { outline: 3px solid rgba(16,185,129,.28); outline-offset: 3px; }
+  .input { @apply w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/10; }
+  .rule { border-top: 1px solid #e5e7eb; }
+  .rule-b { border-bottom: 1px solid #e5e7eb; }
+  .stamp { @apply inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700; }
+  .stamp-clay { @apply inline-flex items-center gap-1.5 rounded-full border border-rose-200 bg-rose-50 px-2.5 py-1 text-[11px] font-semibold text-rose-700; }
+  .tab { @apply relative px-1 py-2 text-sm text-slate-500 transition hover:text-slate-900; }
+  .tab[data-active="true"] { @apply font-semibold text-slate-900; }
+  .tab[data-active="true"]::after { content: ""; @apply absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-emerald-500; }
 }
 
-::selection {
-  background: #C7962C;
-  color: #161C2E;
+.hero-grid {
+  background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 36px 36px;
 }
 
-/* Ledger-style hairline rule, used between record rows instead of card shadows */
-.rule {
-  border-top: 1px solid #D8D9CE;
-}
-
-.rule-b {
-  border-bottom: 1px solid #D8D9CE;
-}
-
-/* Folder-tab navigation used for profile sections */
-.tab {
-  position: relative;
-  padding: 0.6rem 0.15rem;
-  color: #78809A;
-  border-bottom: 2px solid transparent;
-}
-.tab[data-active="true"] {
-  color: #161C2E;
-  border-bottom: 2px solid #161C2E;
-}
-
-/* Wax-seal style verification stamp */
-.stamp {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.75rem;
-  color: #2F6F52;
-  border: 1px solid #2F6F52;
-  border-radius: 999px;
-  padding: 0.15rem 0.55rem 0.15rem 0.4rem;
-  background: #E4EEE7;
-}
-
-.stamp-clay {
-  color: #AE4E37;
-  border-color: #AE4E37;
-  background: #F3E1DA;
-}
-
-.input {
-  width: 100%;
-  border: 1px solid #D8D9CE;
-  border-radius: 4px;
-  padding: 0.55rem 0.75rem;
-  font-size: 0.875rem;
-  background: #FFFFFF;
-}
-.input:focus-visible {
-  outline: 2px solid #161C2E;
-  outline-offset: 1px;
-}
-
-.focus-ring:focus-visible {
-  outline: 2px solid #161C2E;
-  outline-offset: 2px;
-}
+.soft-glow { box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 28px 70px rgba(15,23,42,.28); }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 }
