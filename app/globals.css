@@ -8,6 +8,8 @@ body {
   background: #f6f7fb;
   color: #142033;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  /* Global UI scale: 80% of the previous size. */
+  zoom: 0.8;
 }
 ::selection { background: #d7f3e5; color: #142033; }
 

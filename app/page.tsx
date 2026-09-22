@@ -51,7 +51,7 @@ export default function HomePage() {
                 </div>
                 <Link href={`/companies/${company.slug}`} className="mt-5 flex items-center justify-between rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">Открыть профиль компании <span>→</span></Link>
               </div>
-              <div className="absolute -bottom-5 -left-1 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-xl sm:block"><p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">AI Match Score</p><p className="mt-1 text-sm font-bold text-emerald-700">Объяснимый результат</p></div>
+              {/* <div className="absolute -bottom-5 -left-1 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-xl sm:block"><p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">AI Match Score</p><p className="mt-1 text-sm font-bold text-emerald-700">Объяснимый результат</p></div> */}
             </div>
           </div>
         </div>
