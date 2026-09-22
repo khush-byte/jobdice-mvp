@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F4F5F0;
+  color: #161C2E;
+}
+
+::selection {
+  background: #C7962C;
+  color: #161C2E;
+}
+
+/* Ledger-style hairline rule, used between record rows instead of card shadows */
+.rule {
+  border-top: 1px solid #D8D9CE;
+}
+
+.rule-b {
+  border-bottom: 1px solid #D8D9CE;
+}
+
+/* Folder-tab navigation used for profile sections */
+.tab {
+  position: relative;
+  padding: 0.6rem 0.15rem;
+  color: #78809A;
+  border-bottom: 2px solid transparent;
+}
+.tab[data-active="true"] {
+  color: #161C2E;
+  border-bottom: 2px solid #161C2E;
+}
+
+/* Wax-seal style verification stamp */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: #2F6F52;
+  border: 1px solid #2F6F52;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem 0.15rem 0.4rem;
+  background: #E4EEE7;
+}
+
+.stamp-clay {
+  color: #AE4E37;
+  border-color: #AE4E37;
+  background: #F3E1DA;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #D8D9CE;
+  border-radius: 4px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.875rem;
+  background: #FFFFFF;
+}
+.input:focus-visible {
+  outline: 2px solid #161C2E;
+  outline-offset: 1px;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #161C2E;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
